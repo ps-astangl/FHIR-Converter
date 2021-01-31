@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.Health.Fhir.Liquid.Converter.Hl7v2;
 using Microsoft.Health.Fhir.Liquid.Converter.Hl7v2.Models;
+using Microsoft.Health.Fhir.Liquid.Converter.Json;
 using Microsoft.Health.Fhir.Liquid.Converter.Models;
 using Microsoft.Health.Fhir.Liquid.Converter.Tool.Models;
 using Newtonsoft.Json;
@@ -97,6 +98,11 @@ namespace Microsoft.Health.Fhir.Liquid.Converter.Tool
                 return new Hl7v2Processor();
             }
 
+            if (dataType == DataType.Json)
+            {
+                return new JsonDataProcessor();
+            }
+
             throw new NotImplementedException($"The conversion from data type {dataType} to FHIR is not supported");
         }
 
@@ -105,6 +111,11 @@ namespace Microsoft.Health.Fhir.Liquid.Converter.Tool
             if (dataType == DataType.Hl7v2)
             {
                 return new Hl7v2TemplateProvider(templateDirectory);
+            }
+
+            if (dataType == DataType.Json)
+            {
+                return new JsonTemplateProvider(templateDirectory);
             }
 
             throw new NotImplementedException($"The conversion from data type {dataType} to FHIR is not supported");
@@ -120,6 +131,11 @@ namespace Microsoft.Health.Fhir.Liquid.Converter.Tool
             if (dataType == DataType.Hl7v2)
             {
                 return Directory.EnumerateFiles(inputDataFolder, "*.hl7", SearchOption.AllDirectories).ToList();
+            }
+
+            if (dataType == DataType.Json)
+            {
+                return Directory.EnumerateFiles(inputDataFolder, "*.json", SearchOption.AllDirectories).ToList();
             }
 
             return new List<string>();
