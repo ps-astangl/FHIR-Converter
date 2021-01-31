@@ -1,0 +1,14 @@
+{
+  "FirstName" : "Alfred",
+  "Id" : "BA48D381-2382-47FC-B699-DC888925BFD8",
+  "MiddleName" : "J",
+  "LastName" : "Stangl",
+  "AddressStreet" : "15 N. Montford Ave",
+  "Zip" : "21224",
+  "City" : "Baltimore",
+  "State" : "Md",
+  "MedicalRecordNumber" : 123456,
+  "MedicalFacility" : "Acme Healthcare",
+  "Gender" : "Male",
+  "BirthDate" : "03-06-1988"
+}

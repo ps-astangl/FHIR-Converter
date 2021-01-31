@@ -1,0 +1,52 @@
+{
+  "resource": {
+    "resourceType": "Patient",
+    "id": "{{ ID }}",
+    "gender": "{{ Gender }}",
+    "birthDate": "{{ BirthDate }}",
+    "identifier": [
+      {
+        "use": "usual",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "urn:oid:1.2.36.146.595.217.0.1",
+        "value": "{{ MedicalRecordNumber }}",
+        "period": {
+          "start": "{{ Date }}"
+        },
+        "assigner": {
+          "display": "{{ MedicalFacility }}"
+        }
+      }
+    ],
+    "name": [
+      {
+        "use": "official",
+        "family": "{{ LastName }}",
+        "given": [
+          "{{ FirstName }}",
+          "{{ MiddleName }}"
+        ]
+      }
+    ],
+    "address": [
+      {
+        "use": "home",
+        "type": "both",
+        "text": "{{AddressStreet}} {{City}} {{State}} {{Zip}}",
+        "line": [
+          "{{ AddressStreet }}"
+        ],
+        "city": "{{City}}",
+        "state": "{{State}}",
+        "postalCode": "{{ Zip }}"
+      }
+    ]
+  }}
+}
